@@ -1,0 +1,62 @@
+<div id="main">
+    <div class="m-3 bg-white rounded">
+        <form>
+            <div id="links">
+                <div class="m-3" *ngFor="let item of items; let i = index">
+                    <p-button
+                        type="button"
+                        label="{{ item.name }}"
+                        class="p-button-raised"
+                        (click)="makeMultRequestApi($event, item.url)"
+                    ></p-button>
+                </div>
+            </div>
+
+            <div class="m-3">
+                <label class="form-label">ID</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="txtID"
+                    maxlength="150"
+                />
+            </div>
+
+            <div id="result">
+                <div class="m-3 w-100">
+                    <label class="form-label">Resultado</label>
+                    <button
+                        pButton
+                        pRipple
+                        type="button"
+                        icon="pi pi-copy"
+                        class="p-button-rounded float-end"
+                        (click)="copyResult($event)"
+                    ></button>
+                    <textarea
+                        id="txtResult"
+                        [value]="result"
+                        [disabled]="disableResult"
+                        class="w-100"
+                        pInputTextarea
+                    ></textarea>
+                </div>
+            </div>
+
+            <div id="result">
+                <div class="m-3 w-100">
+                    <label class="form-label">Resultado (JSON)</label>
+                    <textarea
+                        id="txtResultJson"
+                        [value]="resultJson"
+                        [disabled]="disableResult"
+                        class="w-100"
+                        pInputTextarea
+                    ></textarea>
+                </div>
+            </div>
+
+            <p-toast position="bottom-center" key="bc"></p-toast>
+        </form>
+    </div>
+</div>
